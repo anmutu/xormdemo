@@ -1,6 +1,6 @@
 package conf
 
-const DriverName = "mysql"
+const MySqlDriver = "mysql"
 
 type DbConf struct {
 	Host   string

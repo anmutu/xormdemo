@@ -11,7 +11,13 @@ type AdminController struct {
 	Service service.MovieService
 }
 
-func (C *AdminController) Get() mvc.Result {
-	//todo
-	return nil
+func (c *AdminController) Get() mvc.Result {
+	datalist := c.Service.GetAll()
+	return mvc.View{
+		Name: "admin/index.html",
+		Data: iris.Map{
+			"Title":    "小杜的管理后台",
+			"DataList": datalist,
+		},
+	}
 }

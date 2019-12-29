@@ -1,0 +1,25 @@
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>电影名称</th>
+        <th>创建时间</th>
+      <tr>
+    </thead>
+    <tbody>
+    {{range $i, $data := .Datalist}}
+        {{if eq $data.SysStatus 0}}
+            <tr>
+                <th scope="row">{{.Id}}</th>
+                <td>{{$data.Name}}</td>
+                <td>{{$data.create_at}}</td>
+{{/*                <td>*/}}
+{{/*                    <a href="/admin/edit?id={{.Id}}">修改</a>*/}}
+{{/*                    <a href="/admin/delete?id={{.Id}}">删除</a>*/}}
+{{/*                </td>*/}}
+            </tr>
+        {{end}}
+    {{end}}
+    </tbody>
+</table>

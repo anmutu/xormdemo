@@ -2,6 +2,7 @@ package datasource
 
 import (
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"log"
 	"sync"
@@ -32,7 +33,8 @@ func InstanceMaster() *xorm.Engine {
 		c.User, c.Pwd, c.Host, c.Port, c.DbName)
 	engine, err := xorm.NewEngine(conf.MySqlDriver, driveSource)
 	if err != nil {
-		log.Fatal("创建Master的engineer的实例出错")
+		//log.Fatal("创建Master的engineer的实例出错")
+		log.Fatalf("err：%s。小杜同学定位：创建Master的engineer的实例出错。", err)
 		return nil
 	} else {
 		masterEngineer = engine
